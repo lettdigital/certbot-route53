@@ -13,7 +13,7 @@ fi
 sed "s/{{\s*domain_name\s*}}/$DOMAIN_NAME/g" docker-compose.yml.j2 > docker-compose.yml
 docker-compose pull
 docker-compose run --rm certbot
-sudo chown -R jenkins: certbot
+sudo chown -R "$(id -un)": certbot
 
 tar -czvf "$DOMAIN_NAME".tar.gz ./certbot
 aws s3 cp "$DOMAIN_NAME".tar.gz s3://lett-ssl-certificates/backups/"$DOMAIN_NAME".tar.gz

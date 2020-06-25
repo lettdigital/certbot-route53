@@ -1,1 +1,4 @@
 .idea
+certbot
+docker-compose.yml
+*.tar.gz
