@@ -5,6 +5,7 @@ DOMAIN_NAME=$1
 
 if [ -z "$DOMAIN_NAME" ]; then
   echo "Usage: ./deploy.sh <domain_name>"
+  exit 1
 fi
 
 (aws s3 cp s3://lett-ssl-certificates/backups/"$DOMAIN_NAME".tar.gz . && tar -xzvf "$DOMAIN_NAME".tar.gz .) || true
