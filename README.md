@@ -9,4 +9,4 @@ having to regenerate the certificate upon workspace deletion.
 
 ## How to use
 
-- run `deploy.sh <domain_name>`.
+- run `deploy.sh <domain_name> <certbot_email> <target_bucket>`.
