@@ -12,7 +12,7 @@ services:
     command: >
       certonly
        -m {{ email }}
-       -d *.{{ domain_name }},{{ domain_name }}
+       -d *.{{ domain_name }}
        --cert-name {{ domain_name }}
        --dns-route53
        --dns-route53-propagation-seconds 30
