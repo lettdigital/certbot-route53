@@ -1,0 +1,22 @@
+---
+version: '3'
+
+services:
+  certbot:
+    image: certbot/dns-route53
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/lib:/var/lib/letsencrypt
+      - ./certbot/log:/var/log/letsencrypt
+    command: >
+      certonly
+       -m devops@lett.digital
+       -d *.{{ domain_name }},{{ domain_name }}
+       --cert-name {{ domain_name }}
+       --dns-route53
+       --dns-route53-propagation-seconds 30
+       --agree-tos
+       --no-eff-email
+       --keep-until-expiring
+       --noninteractive
