@@ -11,7 +11,7 @@ services:
       - ./certbot/log:/var/log/letsencrypt
     command: >
       certonly
-       -m devops@lett.digital
+       -m {{ email }}
        -d *.{{ domain_name }},{{ domain_name }}
        --cert-name {{ domain_name }}
        --dns-route53
